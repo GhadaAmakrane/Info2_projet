@@ -1,0 +1,18 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block content %}
+    <div class="container mt-5">
+        <h1>Modifier le véhicule :  {{ vehicule.id_vehicule }} : {{ vehicule.marque }}</h1>
+    
+        <form action="{% url 'modifier_vehicule' vehicule.id_vehicule %}" method="post" enctype="multipart/form-data" id="modifierVehiculeForm">
+            {% csrf_token %}
+            <div class="form-group">
+                {{ form.as_p }}
+            </div>
+            <button type="submit" class="btn btn-primary">Enregistrer les modifications</button>
+            {% if vehicule.etat == 'en_attente_de_récuperation' %}
+                <a href="{% url 'livrer_vehicule' vehicule.id_vehicule %}"  class="btn btn-success ">Livré</a>
+            {% endif %}
+        </form>
+    </div>
+{% endblock %}

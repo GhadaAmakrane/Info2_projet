@@ -1,0 +1,34 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block content %}
+<h1> Liste des voitures </h1>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Date d'entrée</th>
+            <th>État</th>
+            <th>Marque</th>
+            <th>Type</th>
+            <th>Lieu</th>
+            <th>Id Lieu</th>
+            <th>Modifier </th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for voiture in vehicules %}
+            <tr>
+                <td>{{ voiture.id_vehicule }}</td>
+                <td>{{voiture.date_creation}}
+                <td>{{ voiture.etat }}</td>
+                <td>{{ voiture.marque }}</td>
+                <td>{{ voiture.type }}</td>
+                <td>{{ voiture.lieu.nom_equi }}</td>
+                <td>{{ voiture.lieu.id_equipement }}</td>
+                <td>
+                    <a href="{% url 'modifier_vehicule' id_vehicule=voiture.id_vehicule %}" class="btn btn-primary">Modifier</a>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

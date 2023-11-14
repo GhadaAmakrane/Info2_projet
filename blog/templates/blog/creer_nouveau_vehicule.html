@@ -1,0 +1,12 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block content %}
+    <h1>Créer un nouveau véhicule</h1>
+
+    <form method="post" enctype="multipart/form-data" id="creerVehiculeForm">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Créer le véhicule</button>
+    </form>
+
+{% endblock %}

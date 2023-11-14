@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% load static %} 
+<html>
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <link rel="stylesheet" href="{% static 'css/base.css' %}">  
+
+    </head>
+    <body>
+        <div class="sidebar-container">
+            <div class="sidebar-logo">
+              Garage
+            </div>
+            <ul class="sidebar-navigation">
+              <li class="header">Navigation</li>
+              <li>
+                <a href="{% url 'acceuil' %}">
+                  <i class="fa fa-home" aria-hidden="true"></i> Acceuil
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="fa fa-tachometer" aria-hidden="true"></i> Dashboard
+                </a>
+              </li>
+              <li class="header">Génerales</li>
+              <li>
+                <a href="{% url 'vehicule_list' %}">
+                  <i class="fa fa-users" aria-hidden="true"></i> Véhicules
+                </a>
+              </li>
+              <li>
+                <a href="{% url 'equipement_list' %}">
+                  <i class="fa fa-cog" aria-hidden="true"></i> Equipements
+                </a>
+              </li>
+            </ul>
+          </div>
+          
+       <div class="content-container">
+        {% block content %}{%endblock%}
+       </div>
+    </body>
+</html>

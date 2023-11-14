@@ -1,0 +1,15 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block content %}
+<div class="page-header">
+    <h1>
+        <a href="/">{{ vehicule.id_vehicule }}</a>
+    </h1>
+    <form method="POST" class="post-form">{% csrf_token %}
+        <b> Changer : </b> {{ form.as_uk }}
+        <button type="submit" class="btn">OK</button>
+        <a href="{% url 'vehicule_list' %}">Back</a>
+    </form>
+</div>
+ 
+{% endblock %}

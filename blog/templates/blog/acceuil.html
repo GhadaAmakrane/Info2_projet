@@ -1,0 +1,48 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block content %}
+<div class="container mt-5">
+    <h1>Accueil</h1>
+    <div class="row mt-4">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">En attente</h5>
+                    <p class="card-text">{{ vehicules_attente }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">En diagnostic</h5>
+                    <p class="card-text">{{ vehicules_diagnostic }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">À livrer</h5>
+                    <p class="card-text">{{ vehicules_livraison }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row mt-4">
+        <div class="col-md-12">
+            <a href="{% url 'creer_vehicule' %}" class="btn btn-primary">
+                <i class="fa fa-car"></i> Nouveau véhicule
+            </a>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-12">
+            <a href="{% url 'creer_lieu' %}" class="btn btn-primary">
+                <i class="fa fa-plus"></i> Nouvel équipement
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

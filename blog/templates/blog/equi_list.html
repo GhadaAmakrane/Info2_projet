@@ -1,0 +1,23 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block content %}
+<h1> Liste des sites  </h1>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>NOM</th>
+            <th>État</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for equi in equipements %}
+            <tr>
+                <td>{{ equi.id_equipement }}</td>
+                <td>{{ equi.nom_equi }}</td>
+                <td>{{ equi.etat_equ }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

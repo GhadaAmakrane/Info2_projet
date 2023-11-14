@@ -1,0 +1,16 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block content %}
+<h1>Modifier l'état de la voiture</h1>
+
+{% if voiture.peut_modifier_etat %}
+    <form method="post" class="your-form-class">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Modifier l'état</button>
+    </form>
+{% else %}
+    <p>Vous n'avez pas la permission de modifier l'état de cette voiture.</p>
+{% endif %}
+
+{% endblock %}
